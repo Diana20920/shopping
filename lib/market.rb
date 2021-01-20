@@ -3,7 +3,7 @@ class Market
               :vendors
 
   def initialize(name)
-    @name = name
+    @name    = name
     @vendors = []
   end
 

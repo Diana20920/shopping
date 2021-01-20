@@ -19,15 +19,15 @@ class VendorTest < Minitest::Test
 
   def test_check_stock_with_item
     vendor = Vendor.new("Rocky Mountain Fresh")
-    item1 = Item.new({name: 'Peach', price: "$0.75"})
+    item1  = Item.new({name: 'Peach', price: "$0.75"})
 
     assert_equal 0, vendor.check_stock(item1)
   end
 
   def test_stock_items
     vendor = Vendor.new("Rocky Mountain Fresh")
-    item1 = Item.new({name: 'Peach', price: "$0.75"})
-    item2 = Item.new({name: 'Tomato', price: '$0.50'})
+    item1  = Item.new({name: 'Peach', price: "$0.75"})
+    item2  = Item.new({name: 'Tomato', price: '$0.50'})
 
     vendor.stock(item1, 30)
 
@@ -42,8 +42,8 @@ class VendorTest < Minitest::Test
 
   def test_check_if_sell_item_by_name
     vendor = Vendor.new("Rocky Mountain Fresh")
-    item1 = Item.new({name: 'Peach', price: "$0.75"})
-    item2 = Item.new({name: 'Tomato', price: '$0.50'})
+    item1  = Item.new({name: 'Peach', price: "$0.75"})
+    item2  = Item.new({name: 'Tomato', price: '$0.50'})
 
     vendor.stock(item1, 30)
     vendor.stock(item2, 12)

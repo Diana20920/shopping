@@ -19,8 +19,7 @@ class MarketTest < Minitest::Test
   end
 
   def test_it_can_add_vendors
-    market = Market.new("South Pearl Street Farmers Market")
-
+    market  = Market.new("South Pearl Street Farmers Market")
     vendor1 = Vendor.new("Rocky Mountain Fresh")
     vendor2 = Vendor.new("Ba-Nom-a-Nom")
     vendor3 = Vendor.new("Palisade Peach Shack")
@@ -33,7 +32,7 @@ class MarketTest < Minitest::Test
   end
 
   def test_it_can_list_vendor_names
-    market = Market.new("South Pearl Street Farmers Market")
+    market  = Market.new("South Pearl Street Farmers Market")
     vendor1 = Vendor.new("Rocky Mountain Fresh")
     vendor2 = Vendor.new("Ba-Nom-a-Nom")
     vendor3 = Vendor.new("Palisade Peach Shack")
@@ -42,14 +41,15 @@ class MarketTest < Minitest::Test
     market.add_vendor(vendor2)
     market.add_vendor(vendor3)
 
-    expected = ["Rocky Mountain Fresh", "Ba-Nom-a-Nom", "Palisade Peach Shack"]
+    expected = ["Rocky Mountain Fresh",
+                "Ba-Nom-a-Nom",
+                "Palisade Peach Shack"]
 
     assert_equal expected, market.vendor_names
   end
 
   def test_list_vendors_that_sell_item
-    market = Market.new("South Pearl Street Farmers Market")
-
+    market  = Market.new("South Pearl Street Farmers Market")
     vendor1 = Vendor.new("Rocky Mountain Fresh")
 
     item1 = Item.new({name: 'Peach', price: "$0.75"})
@@ -102,19 +102,19 @@ class MarketTest < Minitest::Test
     expected = {
                 item1 => {
                           quantity: 100,
-                          vendors: [vendor1, vendor3]
+                          vendors:  [vendor1, vendor3]
                 },
                 item2 => {
                           quantity: 7,
-                          vendors: [vendor1]
+                          vendors:  [vendor1]
                 },
                 item4 => {
                           quantity: 50,
-                          vendors: [vendor2]
+                          vendors:  [vendor2]
                 },
                 item3 => {
                           quantity: 35,
-                          vendors: [vendor2, vendor3]
+                          vendors:  [vendor2, vendor3]
                 }
                }
 
@@ -145,12 +145,15 @@ class MarketTest < Minitest::Test
     market.add_vendor(vendor2)
     market.add_vendor(vendor3)
 
-    expected = ["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"]
+    expected = ["Banana Nice Cream",
+                "Peach",
+                "Peach-Raspberry Nice Cream",
+                "Tomato"]
 
     assert_equal expected, market.sorted_item_list
   end
 
-  def test_
+  def test_list_overstocked_items
     market = Market.new("South Pearl Street Farmers Market")
 
     item1 = Item.new({name: "Peach", price: "$0.75"})
