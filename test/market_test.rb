@@ -1,5 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
+require 'date'
 require './lib/item'
 require './lib/vendor'
 require './lib/market'
@@ -178,5 +180,12 @@ class MarketTest < Minitest::Test
     market.add_vendor(vendor3)
 
     assert_equal [item1], market.overstocked_items
+  end
+
+  def test_it_can_be_created_with_a_date
+    market = mock("South Pearl Street Farmers Market")
+    market.stubs(:date).returns("24/02/2020")
+
+    assert_equal "24/02/2020", market.date
   end
 end
